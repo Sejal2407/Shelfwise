@@ -1,0 +1,83 @@
+.members-container { padding: 4px 2%; color: white; }
+
+.members-header {
+    margin-bottom: 25px;
+    border-left: 4px solid #646cff;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.members-header h2 { margin: 0; font-size: 1.8rem; }
+.members-header p { color: #aaa; margin-top: 5px; }
+
+.members-table-wrapper {
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow-x: auto;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.members-table { width: 100%; border-collapse: collapse; text-align: left; min-width: 600px; }
+
+.members-table th {
+    background-color: #252525;
+    padding: 15px;
+    color: #646cff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.members-table td { padding: 15px; border-bottom: 1px solid #333; color: #ddd; font-size: 0.95rem; }
+.members-table tbody tr:hover { background-color: #222; }
+.members-table tbody tr:last-child td { border-bottom: none; }
+
+.id-badge {
+    background: #333;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #00d1b2;
+    display: inline-block;
+    min-width: 85px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.loading-text, .no-data { text-align: center; padding: 40px; color: #888; }
+
+.search-input {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.9rem;
+    width: 280px;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.search-input:focus { border-color: #646cff; }
+
+@media (max-width: 768px) {
+    .members-container { padding: 4px 3%; }
+    .members-header { flex-direction: column; align-items: flex-start; }
+    .search-input { width: 100%; }
+}
+
+@media (max-width: 480px) {
+    .members-container { padding: 4px 4%; }
+    .members-header h2 { font-size: 1.4rem; }
+    .members-table th, .members-table td { padding: 12px; font-size: 0.82rem; }
+    .id-badge { font-size: 0.78rem; min-width: 70px; }
+}

@@ -1,0 +1,86 @@
+.profile-container { display: flex; justify-content: center; padding: 2rem; box-sizing: border-box; }
+
+.profile-card {
+    background-color: #1e1e1e;
+    color: white;
+    width: 100%;
+    max-width: 500px;
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.profile-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #646cff, #4b53ff);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.profile-title h2 { margin: 0; font-size: 1.5rem; }
+.member-id { color: #888; font-size: 0.9rem; margin: 0.2rem 0; }
+
+.role-badge {
+    background-color: rgba(100, 108, 255, 0.2);
+    color: #646cff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.divider { border: 0; border-top: 1px solid #333; margin-bottom: 2rem; }
+
+.profile-details { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
+
+.detail-group label { display: block; color: #666; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.4rem; }
+.detail-group p { margin: 0; font-size: 1rem; color: #ddd; }
+
+.profile-stats {
+    display: flex;
+    justify-content: space-between;
+    background-color: #252525;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.profile-actions { display: flex; gap: 1rem; }
+
+button { flex: 1; padding: 0.8rem; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; transition: opacity 0.2s; }
+.edit-btn { background-color: #333; color: white; }
+.logout-btn { 
+    background-color: #ff4d4d; 
+    color: white !important;
+}
+button:hover { opacity: 0.8; }
+
+@media (max-width: 768px) {
+    .profile-container { padding: 1.5rem 1rem; }
+    .profile-card { padding: 1.8rem; }
+}
+
+@media (max-width: 480px) {
+    .profile-container { padding: 1rem; }
+    .profile-card { padding: 1.4rem; border-radius: 12px; }
+    .profile-header { gap: 1rem; }
+    .profile-avatar { width: 65px; height: 65px; font-size: 2rem; }
+    .profile-title h2 { font-size: 1.2rem; }
+    .profile-details { grid-template-columns: 1fr; gap: 1rem; }
+    .profile-stats { padding: 1rem; }
+    .profile-actions { flex-direction: column; }
+    button { flex: unset; width: 100%; }
+}

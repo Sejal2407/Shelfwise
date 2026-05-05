@@ -1,0 +1,189 @@
+.borrowed-section {
+    padding: 4px 2%;
+    color: white;
+}
+
+.borrowed-header {
+    margin-bottom: 25px;
+    border-left: 4px solid #646cff;
+    padding-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.borrowed-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.2;
+}
+
+.borrowed-header p {
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.filter-btn {
+    display: flex;
+    gap: 1rem;
+    max-width:40rem;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    margin-bottom: 1.5rem;
+}
+
+.filter-btn button {
+    flex: 1;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: transparent;
+    color: #ccc;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.filter-btn button.active {
+    background: #646cff;
+    color: white;
+    border-color: #646cff;
+}
+
+.filter-btn button:hover:not(.active) {
+    border-color: #888;
+    color: white;
+}
+
+/* ✅ Same pattern as members table */
+.borrowed-table-wrapper {
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow-x: auto;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 1100px;
+    margin: auto;
+}
+
+.borrowed-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.borrowed-table th {
+    background-color: #252525;
+    padding: 15px;
+    color: #646cff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.borrowed-table td {
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    color: #ddd;
+    font-size: 0.95rem;
+}
+
+.borrowed-table tbody tr:hover {
+    background-color: #222;
+}
+
+.borrowed-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.return-icon {
+    cursor: pointer;
+    color: #e74c3c;
+    transition: transform 0.2s;
+}
+
+.return-icon:hover {
+    transform: scale(1.2);
+}
+
+.status-returned {
+    color: #2ecc71;
+    font-weight: 500;
+}
+
+.status-borrowed {
+    color: #f39c12;
+    font-weight: 500;
+}
+
+.status-overdue {
+    color: #e74c3c;
+    font-weight: 500;
+}
+
+.loading-text, .no-data {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .borrowed-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .borrowed-section {
+        padding: 4px 4%;
+    }
+
+    .borrowed-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .borrowed-header h2 {
+        font-size: 1.55rem;
+    }
+
+    .borrowed-header p {
+        font-size: 0.9rem;
+    }
+
+    .filter-btn {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        justify-content: flex-start;
+    }
+
+    .filter-btn button {
+        flex: 1 1 140px;
+        font-size: 0.85rem;
+        padding: 0.55rem 0.8rem;
+    }
+
+    .borrowed-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .borrowed-table {
+        min-width: 700px;
+    }
+
+    .borrowed-table th,
+    .borrowed-table td {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+
+    .loading-text,
+    .no-data {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,19 @@
+.signup-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.subtitle { text-align: center; font-size: 0.85rem; color: #666; margin-top: -1rem; margin-bottom: 1rem; }
+
+.form-footer { margin-top: 1.5rem; text-align: center; font-size: 0.9rem; color: #444; }
+.form-footer a { color: #6366f1; text-decoration: none; font-weight: bold; }
+.form-footer a:hover { text-decoration: underline; }
+
+.login-form { gap: 0.6rem; }
+
+@media (max-width: 480px) {
+    .signup-container { margin: 1rem auto; padding: 0 1rem; }
+    .subtitle { font-size: 0.8rem; }
+}

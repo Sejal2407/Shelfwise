@@ -1,0 +1,168 @@
+.book-card {
+  background-color: #242424;
+  border: 1px solid #444;
+  border-radius: 12px;
+  width: 200px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+  transform: scale(1.05);
+  border-color: #646cff;
+}
+
+.book-cover {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.book-info h3 {
+  font-size: 1.4rem;
+  margin: 10px 0 5px 0;
+  color: #fff;
+}
+
+.book-info p {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.borrow-btn {
+  background-color: #646cff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.borrow-btn:hover {
+  background-color: #535bf2;
+}
+
+/* Book Actions */
+.book-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Wishlist Button */
+.wishlist-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 8px 16px;
+  border: 1px solid #d39e00;
+  background-color: rgba(255, 193, 7, 0.15);
+  color: #d39e00;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.wishlist-btn:hover {
+  background-color: rgba(255, 193, 7, 0.35);
+}
+
+.wishlist-btn.wishlisted {
+  background-color: #d39e00;
+  color: white;
+}
+
+.book-action-btn{
+  display:flex;
+  gap:8px;
+}
+
+.book-action-btn button {
+  height: 2.2rem;
+  width: 2.2rem;
+  display: flex;            
+  justify-content: center; 
+  align-items: center;      
+  padding: 0;               
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.book-action-btn button:hover {
+  background-color: #0449a9;
+  border-color:white;
+  color:white;
+}
+
+/* Optional: Make the Trash button red on hover */
+.book-action-btn button:first-child:hover {
+  background-color: red;
+  border-color:white;
+  color:white;
+}
+
+@media (max-width: 768px) {
+  .book-card {
+    width: 100%;
+    max-width: 220px;
+    padding: 14px;
+  }
+
+  .book-cover {
+    height: 260px;
+  }
+
+  .book-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .book-info p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-card {
+    width: 100%;
+    max-width: none;
+    padding: 12px;
+  }
+
+  .book-cover {
+    height: 220px;
+  }
+
+  .book-info h3 {
+    font-size: 1.05rem;
+  }
+
+  .book-info p,
+  .borrow-btn,
+  .wishlist-btn {
+    font-size: 0.88rem;
+  }
+
+  .borrow-btn,
+  .wishlist-btn {
+    padding: 8px 12px;
+  }
+
+  .book-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .book-action-btn {
+    justify-content: center;
+  }
+}
