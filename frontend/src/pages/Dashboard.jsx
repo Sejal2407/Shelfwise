@@ -3,6 +3,7 @@ import "../css/dashboard.css"
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AlertTriangle, Clock, BookOpen, Users, BookMarked, RotateCcw } from 'lucide-react';
+import API_URL from '../api';
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ function Dashboard() {
 
   const fetchDashboard = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:5000/api/dashboard', {
+      const response = await axios.get(`${API_URL}/api/dashboard`, {
         params: { userId: user.email }
       });
       const data = response.data;
@@ -56,9 +57,9 @@ function Dashboard() {
   const fetchLibrarianDashboard = async () => {
     try {
       const [booksRes, membersRes, borrowedRes] = await Promise.all([
-        axios.get('http://127.0.0.1:5000/api/books'),
-        axios.get('http://127.0.0.1:5000/api/members'),
-        axios.get('http://127.0.0.1:5000/api/librarian-dashboard')
+        axios.get(`${API_URL}/api/books`),
+        axios.get(`${API_URL}/api/members`),
+        axios.get(`${API_URL}/api/librarian-dashboard`)
       ]);
       setLibStats({
         totalBooks: booksRes.data.length,

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import "../css/librarian.css"
 import AddLibrarian from '../components/AddLibrarian';
 import { toast } from 'react-toastify';
+import API_URL from '../api';
 
 function Librarian() {
   const [librarian, setLibrarian] = useState([]);
@@ -12,7 +13,7 @@ function Librarian() {
 
   const fetchLibrarian = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:5000/api/librarian');
+      const response = await axios.get(`${API_URL}/api/librarian`);
       setLibrarian(response.data);
     } catch (error) {
       console.log("Error fetching librarian", error);

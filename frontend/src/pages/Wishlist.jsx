@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import BookCard from '../components/bookCard';
 import "../css/book.css";
+import API_URL from '../api';
 
 function Wishlist() {
   const [books, setBooks] = useState([]);
@@ -10,7 +11,7 @@ function Wishlist() {
 
   const fetchWishlist = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:5000/api/wishlist', {
+      const response = await axios.get(`${API_URL}/api/wishlist`, {
         params: { userId: user.email }
       });
       setBooks(response.data);

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import "../css/profile.css";
+import API_URL from '../api';
 
 function Profile() {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ function Profile() {
 
     const fetchProfile = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/profile', {
+        const response = await axios.get(`${API_URL}/api/profile`, {
           params: { userId: savedUser.email }
         });
 
@@ -74,7 +75,7 @@ function Profile() {
     if (!result.isConfirmed || !savedUser?.email) return;
 
     try {
-      await axios.delete('http://127.0.0.1:5000/api/profile', {
+      await axios.delete(`${API_URL}/api/profile`, {
         data: { userId: savedUser.email }
       });
       localStorage.removeItem('user');

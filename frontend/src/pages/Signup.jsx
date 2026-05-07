@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import "../css/signup.css"
 import { toast } from 'react-toastify';
+import API_URL from '../api';
 
 function Signup() {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ function Signup() {
       return;
     }
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/signup', formData);
+      const response = await axios.post(`${API_URL}/api/signup`, formData);
       console.log("Server Response : ",response.data);
       
       localStorage.setItem('user', JSON.stringify(response.data.user));

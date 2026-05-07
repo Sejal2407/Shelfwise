@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import '../css/modal.css';
+import API_URL from '../api';
 
 function AddLibrarian({ isOpen, onClose, refreshData }) {
     const [libData, setLibData] = useState({ fullName: '', memberId: '', email: '', password: '' });
@@ -16,7 +17,7 @@ function AddLibrarian({ isOpen, onClose, refreshData }) {
 
         try {
             // We'll create a specific route for this in backend
-            await axios.post('http://127.0.0.1:5000/api/librarian/add', libData);
+            await axios.post(`${API_URL}/api/librarian/add`, libData);
             toast.success("New Librarian registered!");
             refreshData();
             onClose();

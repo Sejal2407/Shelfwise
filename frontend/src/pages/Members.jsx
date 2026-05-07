@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 import "../css/members.css";
+import API_URL from '../api';
 
 function Members() {
   const [members, setMembers] = useState([]);
@@ -11,7 +12,7 @@ function Members() {
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/members');
+        const response = await axios.get(`${API_URL}/api/members`);
         setMembers(response.data);
       } catch (error) {
         console.log("Error fetching members", error);

@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import "../css/login.css";
+import API_URL from '../api';
 
 function Login() {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ function Login() {
     
     try {
       // 2. Sending { email, password } to Flask
-      const response = await axios.post('http://127.0.0.1:5000/api/login', credentials);
+      const response = await axios.post(`${API_URL}/api/login`, credentials);
       
       console.log("Login Success:", response.data);
       

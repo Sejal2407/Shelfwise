@@ -4,6 +4,7 @@ import "../css/bookCard.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import API_URL from '../api';
 
 
 function BookCard({ book, refreshBooks, onEdit, onWishlistChange }) {
@@ -18,10 +19,10 @@ function BookCard({ book, refreshBooks, onEdit, onWishlistChange }) {
     const checkStatuses = async () => {
       try {
         const [borrowRes, wishRes] = await Promise.all([
-          axios.get('http://127.0.0.1:5000/api/books/borrow-status', {
+          axios.get(`${API_URL}/api/books/borrow-status`, {
             params: { userId: user.email, bookId: book._id }
           }),
-          axios.get('http://127.0.0.1:5000/api/wishlist/status', {
+          axios.get(`${API_URL}/api/wishlist/status`, {
             params: { userId: user.email, bookId: book._id }
           })
         ]);
@@ -61,7 +62,7 @@ function BookCard({ book, refreshBooks, onEdit, onWishlistChange }) {
   });
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://127.0.0.1:5000/api/books/${bookId}`);
+        await axios.delete(`${API_URL}/api/books/${bookId}`);
         toast.success("Book removed from the library");
         refreshBooks();
       } catch (error) {
@@ -72,14 +73,14 @@ function BookCard({ book, refreshBooks, onEdit, onWishlistChange }) {
 
   const handleBorrow = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/books/borrow', {
+      const response = await axios.post(`${API_URL}/api/books/borrow`, {
         userId: user.email,
         bookId: book._id
       });
       toast.success(`Borrowed! Return by: ${formatDate(response.data.returnDate)}`);
       setIsBorrowed(true);
       if (isWishlisted) {
-        await axios.post('http://127.0.0.1:5000/api/wishlist/remove', {
+        await axios.post(`${API_URL}/api/wishlist/remove`, {
           userId: user.email,
           bookId: book._id
         });
@@ -94,7 +95,7 @@ function BookCard({ book, refreshBooks, onEdit, onWishlistChange }) {
 
   const handleReturn = async () => {
     try {
-      await axios.post('http://127.0.0.1:5000/api/books/return', {
+      await axios.post(`${API_URL}/api/books/return`, {
         userId: user.email,
         bookId: book._id
       });
@@ -109,14 +110,14 @@ function BookCard({ book, refreshBooks, onEdit, onWishlistChange }) {
   const handleWishlist = async () => {
     try {
       if (isWishlisted) {
-        await axios.post('http://127.0.0.1:5000/api/wishlist/remove', {
+        await axios.post(`${API_URL}/api/wishlist/remove`, {
           userId: user.email,
           bookId: book._id
         });
         toast.success("Removed from wishlist");
         setIsWishlisted(false);
       } else {
-        await axios.post('http://127.0.0.1:5000/api/wishlist/add', {
+        await axios.post(`${API_URL}/api/wishlist/add`, {
           userId: user.email,
           bookId: book._id
         });

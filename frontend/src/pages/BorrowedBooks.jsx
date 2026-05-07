@@ -3,6 +3,7 @@ import "../css/borrowedBooks.css"
 import { LogOut } from "lucide-react"
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import API_URL from '../api';
 
 function BorrowedBooks() {
 
@@ -13,7 +14,7 @@ function BorrowedBooks() {
 
   const fetchBorrowedBooks = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:5000/api/borrowed', {
+      const response = await axios.get(`${API_URL}/api/borrowed`, {
         params: { userId: user.email }
       });
       setBorrowedBooks(response.data);
@@ -32,7 +33,7 @@ function BorrowedBooks() {
   const handleReturn = async (borrowId) => {
     try {
       console.log("Returning borrowId:", borrowId); // 👈 debug log
-      const response = await axios.post('http://127.0.0.1:5000/api/books/return-by-record', {
+      const response = await axios.post(`${API_URL}/api/books/return-by-record`, {
         borrowId: borrowId
       });
       console.log("Return response:", response.data); // 👈 debug log

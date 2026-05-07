@@ -3,6 +3,7 @@ import axios from 'axios';
 import BookCard from '../components/bookCard';
 import AddBook from '../components/AddBook';
 import "../css/book.css";
+import API_URL from '../api';
 
 function Books() {
   const [books, setBooks] = useState([]);
@@ -18,7 +19,7 @@ function Books() {
 
   const fetchBooks = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:5000/api/books');
+      const response = await axios.get(`${API_URL}/api/books`);
       setBooks(response.data);
     } catch (error) {
       console.error("Error fetching books:", error);

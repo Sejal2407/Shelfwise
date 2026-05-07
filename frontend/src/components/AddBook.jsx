@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import '../css/modal.css';
+import API_URL from '../api';
 
 function AddBook({ isOpen, onClose, refreshBooks, initialData = null }) {
     const isEdit = !!initialData;
@@ -50,8 +51,8 @@ function AddBook({ isOpen, onClose, refreshBooks, initialData = null }) {
 
         try {
             const url = isEdit
-                ? `http://127.0.0.1:5000/api/books/${initialData._id}`
-                : `http://127.0.0.1:5000/api/books/add`;
+                ? `${API_URL}/api/books/${initialData._id}`
+                : `${API_URL}/api/books/add`;
             const method = isEdit ? 'put' : 'post';
 
             await axios({ method, url, data: formData, headers: { 'Content-Type': 'multipart/form-data' } });
